@@ -1,0 +1,506 @@
+/* بداية المتغيرات */
+    :root{
+    --main-color: #10cab7;
+    --secondary-color: #2c4755;
+    --section-padding: 60px 0;
+    --section-color:#f6f6f6;
+    }
+/* نهاية المتغيرات */
+
+/* العناصر كثيرة الاستخدام */
+    
+    /* هنا علشان الكلام الكبير ونستخدمة اكثر من مرا */
+    .special-heading{
+        color: #ebeced;
+        font-size: 100px;
+        text-align: center;
+        font-weight: 800;
+        letter-spacing: -3px;
+        margin: 0;
+    }
+
+    /* البرقراف الي بعد الاسبيشل هيدنق على طول */
+    .special-heading + p{
+        margin: -30px 0 0;
+        font-size: 20px;
+        text-align: center;
+        color: #797979;
+        
+    }
+    @media (max-width: 767px){
+        .special-heading{
+            font-size: 80px;
+        }
+        .special-heading + p{
+            margin-top: -20px;
+        }
+    }
+
+
+
+
+
+/* العناصر كثيرة الاستخدام */
+
+/* بداية العناصر الاساسية */
+* {
+    -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    body{
+        font-family: 'Work Sans', sans-serif;
+    }
+    
+    /* علشان لما ينزل ينزل بشكل مناسب */
+    html{
+        scroll-behavior: smooth;
+    }
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  /* Small */
+  @media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+  }
+  /* Medium */
+  @media (min-width: 992px) {
+      .container {
+          width: 970px;
+        }
+    }
+    /* Large */
+    @media (min-width: 1200px) {
+        .container {
+            width: 1170px;
+        }
+    }
+    /* نهاية العناصر الاساسية */
+
+    /* بداية الهيدر */
+    header{
+        padding:20px ;
+    }
+    header .container{
+        /* علشان نسوي المسافة الي بينهم */
+        display: flex;
+        justify-content: space-between;
+        /* علشان يكونو متسوطين في نفس الارتفاع */
+        align-items: center;
+    }
+    header .logo{
+        width: 60px;
+    }
+    header .links{
+        /* علشان نسوي الايقونات ونتحكم فيها  */
+        position: relative;
+    }
+    header .links .icon{
+        width: 30px;
+        display: flex;
+       /* علشان يخليهم تحت بعض */
+        flex-wrap: wrap;
+       /* علشان يخلي الاسبان يبدء من النهاية */
+        justify-content: flex-end;
+    }
+    header .links .icon span{
+        background-color: rgb(0, 0, 0);
+        margin-bottom: 5px;
+        height: 2px;  
+        width: 100%;
+    }
+    /* هذا علشان نخلي الخط الثاني اصغر شويه */
+    header .links .icon span:nth-child(2){
+        width: 70%;
+        transition: 0.3s;
+    }
+    /* هنا علشان نخلي الخط الي فالنص لما نسوي عليه هوفر يكبر */
+    header .links:hover .icon span:nth-child(2){
+        width: 100%;
+    }
+    
+    /* هنا القائمة */
+    header .links ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color: #f6f6f6;
+        position: absolute;
+        right: 0;
+        min-width: 200px;
+        top: calc(100% + 15px);
+       /* علشان نخفي القائمة */
+        display: none;
+        z-index: 1;
+    }
+
+    /* علشان نظهر القائمة */
+    header .links:hover ul{
+        display: block;
+    }
+
+
+    /* هنا علشان نظهر السهم الصغير  */
+    header .links ul::before{
+        content: "";
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent transparent #f6f6f6 transparent;
+        position: absolute;
+        right: 5px;
+        top: -20px;
+    }
+
+    /* هنا قسم الاسماء وكذا */
+    header .links ul li a{
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+        color: black;
+        /* علشان احنا بنخلي يتحرك فهذا يخلي يتحرك بسلاسه */
+        transition: 0.3s;
+    }
+
+    /* علشان الكلمة تروح لليمين لما تروح فوقها */
+    header .links ul li a:hover{
+    /* حطينا 25 لانو اوردي اول كان في 15 */
+        padding-left: 25px;
+        /* الترنزيشن هي الي ساعدتو تروح على اليسار بسلاسة */
+    }
+
+    header .links ul li:not(:last-child) a{
+        border-bottom: #ddd solid 1px;
+    }
+
+    /* نهاية الهيدر */
+
+    /* بداية القسم الاول */
+    .se1{
+        background-image: url(../img/landing.jpg);
+        background-size: cover;
+        height: calc(100vh - 64px);
+        /* هنا علشان الكلام يكون في وسط الاب حقو مو وسط الشاشة */
+        position: relative;
+    }
+    .se1 .intor-text{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        /* ضفناها علشان في الجوال تبان مزبوطة */
+        /* width: 320px; */
+        max-width: 100%;
+        width: 320px;
+    }
+    .se1 .intor-text h1{
+        margin: 0;
+        color: var(--main-color);
+        font-weight: bold;
+        font-size: 50px;
+
+    }
+    .se1 .intor-text p{
+        font-size: 19px;
+        line-height: 1.8;
+    }
+
+    /* نهاية القسم الاول */
+    
+    /* بداية القسم الثاني */
+    
+    .se2{
+        padding: var(--section-padding);
+        background-color: var(--section-color);
+    }
+
+    .se2 .container{
+        display: grid;
+        /* هنا علشان يكون على حسب حجم الشاشة  */
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 20px;
+    }
+
+    .se2 .card{
+        padding: 20px;
+        text-align: center;
+    }
+    .se2 .card i{
+        color: var(--main-color);
+    }
+    .se2 .card h3{
+        font-weight: 800;
+        margin: 30px 0;
+
+    }
+
+    .se2 .card p{
+        line-height: 1.6;
+        color: #777;
+        font-size: 17px;
+    }
+    /* نهاية القسم الثاني */
+    
+    /* بداية القسم الثالث */
+    .se3{
+        padding: var(--section-padding);
+    }
+
+    .se3 .se3-content{
+        display: grid;
+        /* هنا علشان يكون على حسب حجم الشاشة  */
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 30px;
+        margin-top: 100px;
+    }
+
+    .se3 .se3-content .box{
+        display: flex;
+        margin-bottom: 40px;
+    }
+
+
+    @media (max-width: 767px){
+        .se3 .se3-content .box{
+            /* علشان فالجوال طريقة العرض تكون اعمدة  */
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+    .se3 .se3-content .box i{
+        color: var(--main-color);
+       /* زي المساحة للطول والعرض */
+        flex-basis: 60px;
+    }
+    .se3 .se3-content .box .text{
+        flex: 1;
+    }
+    .se3 .se3-content .box .text h3 {
+        margin: 0 0 20px;
+    }
+
+    .se3 .se3-content .box .text p{
+        color: #333;
+        font-weight: 300;
+        line-height: 1.6;
+    }
+    .se3 .se3-content .image{
+        text-align: center;
+        position: relative;
+    }
+    .se3 .se3-content .image img{
+        width:260px;
+    }
+    
+    /* الخط الي تحت الصورة */
+    .se3 .se3-content .image::before{
+        content: "";
+        position: absolute;
+        right: 0;
+        background-color: var(--secondary-color);
+        width: 100px;
+        height: calc( 100% + 100px);
+        /* علشان تطلع على فوق */
+        top: -50px;
+       /* علشان تصصير تحت الصورة */
+        z-index: -1;
+    }
+    @media (max-width: 1199px) {
+        .image {
+          display: none;
+        }
+      }
+    /* نهاية القسم الثالث */
+
+
+    /* بداية القسم الرابع */
+
+    .se4 {
+        padding: var(--section-padding);
+        background-color: var(--section-color);
+    }
+    .se4 .se4-content{
+        display: grid;
+        /* هنا علشان يكون على حسب حجم الشاشة  */
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 30px;
+        margin-top: 100px;
+    }
+
+    .se4 .se4-content .art{
+        background-color: white;
+    }
+
+    .se4 .se4-content .art img{
+        max-width: 100%;
+    }
+
+    .se4 .se4-content .art .info{
+        padding: 20px;
+    }
+    .se4 .se4-content .art .info h3{
+       /* علشان نخلي البادنق هوا الي يتحكم في المسافات */
+        margin: 0;
+    }
+    
+    .se4 .se4-content .art .info p{
+        color: #777;
+        line-height: 1.6;
+        /* لان اصلا هو فيه مارجن */
+        margin-bottom: 0;
+    }
+    /* نهاية القسم الرابع */
+
+    /* بداية قسم خمسة */
+    .se5{
+        padding-top: 60px;
+        padding-bottom: 120px;
+    }
+
+    .se5 .se5-content{
+        margin-top: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    @media (max-width: 991px) {
+        .se5 .se5-content {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+    .se5 .se5-content .image1{
+        /* علشان لما مسوي الاشكال جوتة تعتمد على هذا وجوا نخليه ابسلوت */
+        position: relative;
+        width: 250px;
+        height: 375px;
+    }
+    @media (max-width: 991px) {
+        .se5 .se5-content .image1 {
+          margin: 0 auto 60px;
+        }
+      }
+      /* تصميم الخطوط ورا الصورة  */
+      .se5 .se5-content .image1::before{
+          /* اهم شي علشان يشتغل */
+        content: "";
+        position: absolute;
+        background-color:#ebeced;
+        width: 100px;
+        /* علشان يكون في زيادة نحطها فوق وتحت */
+        height: calc(100% + 80px);
+        top: -40px;
+        /* علشان يروح يسار شويه */
+        left: -20px;
+        z-index: -1;
+    }
+    .se5 .se5-content .image1::after{
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 300px;
+        border-left: 80px solid var(--main-color);
+        border-bottom: 80px solid var(--main-color);
+        top: -40px;
+        right: -150px;
+        z-index: -1;
+    }
+    @media (max-width: 991px) {
+        .se5 .se5-content .image1::before,
+        .se5 .se5-content .image1::after {
+          display: none;
+        }
+      }
+    
+    .se5 .se5-content .image1 img{
+        max-width: 100%;
+    }
+    .se5 .se5-content .text{
+        flex-basis: calc(100% - 500px);
+    }
+
+    .se5 .se5-content .text p:first-of-type{
+        font-weight: bold;
+        line-height: 2;
+        margin-bottom: 50px;
+
+    }
+    .se5 .se5-content .text hr{
+        width: 50%;
+        display: inline-block;
+        border-color: var(--main-color);
+
+    }
+    .se5 .se5-content .text p:last-of-type{
+        line-height: 2;
+        color: #777;
+    }
+
+    /* نهاية قسم خمسة */
+
+    /* بداية قسم ستة */
+    .se6{
+        padding: var(--section-padding);
+        background-color: var(--section-color);
+    }
+    .se6 .se6-contener{
+        /* نحط بادنق علشان تكون في مساحة */
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .se6 .se6-contener .label{
+        font-size: 35px;
+        font-weight: 800;
+        color: var(--secondary-color);
+        letter-spacing: -2px;
+        margin-bottom: 15px;
+    }
+    .se6 .se6-contener .email{
+        /* علشان نقدر نتحكم فيه كويس */
+        display: block;
+        font-size: 35px;
+        color: var(--main-color);
+        font-weight: 800;
+        text-decoration: none;
+    }
+    @media (max-width:767px){
+        .se6 .se6-contener .email,
+        .se6 .se6-contener .label{
+            font-size: 25px;
+        }
+    }
+    .se6 .se6-contener .social{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+    .se6 .se6-contener .social .al{
+        margin-left: 10px;
+    }
+    .se6 .se6-contener .social .al i{
+        color: var(--main-color);
+    }
+
+    /* نهاة قسم ستة */
+    /* بداية الفوتر */
+    footer{
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 30px 10px;
+        text-align: center;
+        font-size: 18px;
+    }
+    footer span{
+        font-weight: bold;
+        color: var(--main-color);
+    }
+    /* نهاية الفوتر */
